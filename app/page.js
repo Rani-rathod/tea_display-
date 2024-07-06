@@ -1,17 +1,48 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import React from "react";
+import Static from "./static_tea";
+import Dynamic from "./dynamic_tea"
 
-function TeaDisplay(){
-  let name="Green Tea";
-  let origin="China";
-  let description="Green tea is made from the leaves of the Camellia sinensis plant.These leaves are not dried and oxidized like the ones used to make black tea."
+
+let teas = [
+  {
+    name: "Green Tea",
+    origin: "China",
+    description: "Green tea is made from the leaves of Camellia sinensis that have not undergone the same withering and oxidation process used to make black tea."
+  },
+  {
+    name: "Black Tea",
+    origin: "India",
+    description: "Black tea is more oxidized than oolong, green and white teas. It generally has a stronger flavor than other teas."
+  },
+  {
+    name: "Oolong Tea",
+    origin: "Taiwan",
+    description: "Oolong is a traditional semi-oxidized Chinese tea produced through a process including withering the plant under strong sun and oxidation before curling and twisting."
+  }
+];
+
+
+function App(){
   return (
     <div>
-      <h1>{name}</h1>
-      <h2>Origin:{origin}</h2>
-      <p>{description}</p>
+      <Static/>
+
+      {teas.map((tea) => (
+        <Dynamic
+          name={tea.name}
+          origin={tea.origin}
+          description={tea.description}
+        />
+      ))}
+      <Dynamic
+        // teas={teas[0]}
+      />
     </div>
   );
+  
 }
-export default TeaDisplay
+export default App; 
+
+
