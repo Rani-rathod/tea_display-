@@ -29,20 +29,37 @@ function App(){
     <div>
       <Static/>
 
-      {teas.map((tea) => (
+      {/* 3rd point */}
+      {teas.map((tea)=>(
         <Dynamic
           name={tea.name}
           origin={tea.origin}
           description={tea.description}
         />
       ))}
+
+      {/* 2nd point */}
       <Dynamic
-        // teas={teas[0]}
+        name = {teas[0].name}
+        origin = {teas[0].origin}
+        description = {teas[0].description}
+      /> 
+
+      <Dynamic
+        name={teas[1].name}
+        origin={teas[1].origin}
+        description={teas[1].description}
+      />
+
+
+      <Dynamic
+        name={teas[2].name}
+        origin={teas[2].origin}
+        description={teas[2].description}
       />
     </div>
   );
   
 }
 export default App; 
-
 
